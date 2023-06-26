@@ -1,6 +1,6 @@
 ---
 - name: git clone aws retail store from ansible
-  hosts: podman-master.local.dev
+  hosts: all
   tasks:
           - name: git clone image aws container retailstore
             command: https://github.com/aws-containers/retail-store-sample-app.git
