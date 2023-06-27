@@ -1,0 +1,15 @@
+---
+- name: deploy retail store app from ansible
+  hosts: all
+  tasks:
+          - name: 1. clone image aws container retailstore
+            command: git clone https://github.com/aws-containers/retail-store-sample-app.git
+          
+          - name: 2. run application retail store
+            command: kubectl apply -f ~/retail-store-sample-app/dist/kubernetes/deploy.yaml
+
+          - name: 3. Get the URL for the frontend load balancer
+            command: kubectl get svc ui
+
+          - name: 4. Detail status pod
+            command: kubectl get pod -o wide
